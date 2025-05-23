@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfone Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="fundo">
+        <div class="centralizador">
+            <div class="Mensagem-tudo" id="box1">
+
+                <div class="indicação">
+                    <h1>📬 Interfone Digital.</h1>
+                </div>
+
+                <div class="caixa-mensagem">
+
+
+                    <p id="aviso" class="aviso">Digite sua mensagem abaixo.
+                        <span id="contadorTentativas" class="contadorTentativas">(Max: 2 Tentativas)</span>
+                    </p>
+
+                    <p id="avisoCaracteres" class="caractere" style="display: none;">Max: 40 Caracteres</p>
+
+                    <form id="formMensagem" method="POST" action="enviar.php">
+                        <div>
+                            <input id="mensagem" name="mensagem" placeholder="Digite aqui sua mensagem..." rows="4"
+                                type="text" maxlength="40"></input>
+
+                            <div class="aviso-pre-fixado">
+                                <p>Opções rápidas:</p>
+                            </div>
+
+                            <div class="botoes-prontos">
+                                <button type="button" class="primeiro"
+                                    onclick="window.open('paginas/index.html', '_blank')">🏠 Casa pra alugar?</button>
+
+                                <button type="button" class="segundo" onclick="chamarPessoas()">🗣 Chamar
+                                    alguém?</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <div class="div-botão-envio">
+                    <button type="button" class="botão-envio" onclick="enviarMensagem()">📩 Enviar</button>
+                </div>
+
+
+                <div id="popup" class="popup" style="display: none;"></div>
+
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

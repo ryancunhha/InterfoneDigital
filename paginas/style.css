@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fundo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #424242;
+    z-index: -3;
+}
+
+.centralizador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.Casa-Tudo {
+    background-color: rgb(101, 89, 89);
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid black;
+}
+
+.Divulgação {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.Divulgação h1 {
+    font-size: 30px;
+    color: white;
+}
+
+.Divulgação p {
+    color: white;
+    margin-top: 0.5em;
+}
+
+.Tudo-Casas {
+    transition: opacity 0.5s ease;
+    display: flex;
+    gap: 15px;
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+#box1 {
+    box-shadow: 20px 20px;
+}
+
+.andar-1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.botão-1 {
+    transition: opacity 0.5s ease;
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botão-2 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.andar-3 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.botão-3 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botão-4 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botão-5 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botão-6 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
