@@ -43,13 +43,8 @@
 }
 
 .Divulgação h1 {
-    font-size: 30px;
+    font-size: 40px;
     color: white;
-}
-
-.Divulgação p {
-    color: white;
-    margin-top: 0.5em;
 }
 
 .Tudo-Casas {
@@ -60,10 +55,6 @@
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 16px;
-}
-
-#box1 {
-    box-shadow: 20px 20px;
 }
 
 .andar-1 {
@@ -136,6 +127,18 @@
 }
 
 .botão-6 {
+    background-color: #928c8c;
+    padding: 10px 25px;
+    border-radius: 9px;
+    border: 1px solid black;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.home {
+    margin-top: 10px;
     background-color: #928c8c;
     padding: 10px 25px;
     border-radius: 9px;

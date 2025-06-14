@@ -6,8 +6,6 @@
 
 .fundo {
     position: fixed;
-    width: 100%;
-    height: 100%;
     background: #424242;
     z-index: -3;
 }
@@ -22,7 +20,7 @@
     padding: 20px 30px;
     border-radius: 10px;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0);
     z-index: 1000;
     min-width: 200px;
     max-width: 90%;
@@ -53,15 +51,13 @@
     width: 100vw;
     height: 100vh;
     flex-direction: column;
-    padding: 1em;
+    padding: 1rem;
 }
 
 .Mensagem-tudo {
     background-color: rgb(101, 89, 89);
-    width: 90%;
     max-width: 500px;
-    height: auto;
-    padding: 2em;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,15 +66,11 @@
     border: 1px solid black;
 }
 
-#box1 {
-    box-shadow: 20px 20px;
-}
-
 .indicação {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 0.8rem;
 }
 
 .caixa-mensagem {
@@ -90,50 +82,49 @@
     width: 100%;
     height: 120px;
     background-color: rgb(101, 89, 89);
-    color: white;
-    font-style: italic;
     border: 1px solid black;
     border-radius: 10px;
-    padding: 1em;
-    font-size: 1em;
-    resize: vertical;
-}
-
-.caixa-mensagem textarea::placeholder {
-    color: #ddd;
+    color: white;
+    padding: 1rem;
+    font-size: 1.8rem;
 }
 
 .aviso {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 20px;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.contadorTentativas {
+#contadorTentativas {
     color: rgb(255, 20, 20);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
 }
 
-.aviso-pre-fixado {
-    justify-self: center;
-
+.div-botão-envio {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.aviso-pre-fixado p {
+.botoes {
+    display: flex;
+    background-color: #928c8c;
+    padding: 10px 10px;
+    border-radius: 9px;
+    border: 1px solid black;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botoes button {
+    background-color: transparent;
+    border: 0px;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    margin-top: 5px;
-    text-align: center;
-}
-
-
-.botoes-prontos {
-    margin-top: 8px;
-    justify-self: center;
+    cursor: pointer;
 }
 
 .primeiro {
@@ -143,40 +134,263 @@
     border: 1px solid black;
     color: white;
     font-size: 1em;
-    cursor: pointer;
     transition: background 0.3s ease;
 }
 
-.segundo {
-    background-color: #928c8c;
-    padding: 10px 10px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.caractere {
+#avisoCaracteres {
     color: rgb(255, 44, 44);
-    font-size: 15px;
-    margin-top: 5px;
+    font-size: 20px;
+    margin-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
 .botão-envio {
     background-color: #928c8c;
-    padding: 10px 25px;
+    padding: 10px;
     border-radius: 9px;
     border: 1px solid black;
     color: white;
-    font-size: 1em;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-.botão-envio:hover {
-    background-color: #aaa;
+.fechar {
+    background-color: rgba(255, 89, 89, 0.327);
+    border: 1px solid black;
+    border-radius: 20%;
+    color: black;
+    width: 50px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 0;
+    margin-bottom: 20px;
+    margin-left: 75%;
+    cursor: pointer;
+}
+
+#mostraropções {
+    position: fixed;
+    background-color: rgb(101, 89, 89);
+    width: 50%;
+    max-width: 300px;
+    padding: 1em;
+    display: flex;
+    display: none;
+    flex-direction: column;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+.botão-opções {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.info {
+    position: fixed;
+    padding-top: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+/* celulares */
+@media (max-width: 800px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .fundo {
+        position: fixed;
+        background: #424242;
+        z-index: -3;
+    }
+
+    #popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px 30px;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0, 0, 0);
+        z-index: 1000;
+        min-width: 200px;
+        max-width: 90%;
+    }
+
+    .popup-success {
+        background: #d4edda;
+        border: 2px solid #28a745;
+        color: #155724;
+    }
+
+    .popup-error {
+        background: #f8d7da;
+        border: 2px solid #dc3545;
+        color: #721c24;
+    }
+
+    .avisoNome {
+        background: #f8d7da;
+        border: 2px solid #dc3545;
+        color: #721c24;
+    }
+
+    .centralizador {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .Mensagem-tudo {
+        background-color: rgb(101, 89, 89);
+        max-width: 500px;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 16px;
+        border: 1px solid black;
+    }
+
+    .indicação {
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        text-align: center;
+        margin-bottom: 0.8rem;
+    }
+
+    .caixa-mensagem {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .caixa-mensagem input {
+        width: 100%;
+        height: 120px;
+        background-color: rgb(101, 89, 89);
+        border: 1px solid black;
+        border-radius: 10px;
+        color: white;
+        padding: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .aviso {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    #contadorTentativas {
+        color: rgb(255, 20, 20);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+    }
+
+    .div-botão-envio {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .botoes {
+        display: flex;
+        background-color: #928c8c;
+        padding: 10px 10px;
+        border-radius: 9px;
+        border: 1px solid black;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .botoes button {
+        background-color: transparent;
+        border: 0px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .primeiro {
+        background-color: #928c8c;
+        padding: 10px 10px;
+        border-radius: 9px;
+        border: 1px solid black;
+        color: white;
+        font-size: 1em;
+        transition: background 0.3s ease;
+    }
+
+    #avisoCaracteres {
+        color: rgb(255, 44, 44);
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .botão-envio {
+        background-color: #928c8c;
+        padding: 10px;
+        border-radius: 9px;
+        border: 1px solid black;
+        color: white;
+        cursor: pointer;
+    }
+
+    .fechar {
+        background-color: rgba(255, 89, 89, 0.327);
+        border: 1px solid black;
+        border-radius: 20%;
+        color: black;
+        width: 43px;
+        font-size: 35px;
+        font-family: Arial, Helvetica, sans-serif;
+        z-index: 0;
+        margin-bottom: 20px;
+        margin-left: 75%;
+        cursor: pointer;
+    }
+
+    #mostraropções {
+        position: fixed;
+        background-color: rgb(101, 89, 89);
+        width: 50%;
+        max-width: 300px;
+        padding: 1em;
+        display: flex;
+        display: none;
+        flex-direction: column;
+        border-radius: 15px;
+        border: 2px solid black;
+    }
+
+    .botão-opções {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .info {
+        position: fixed;
+        padding-top: 5px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
 }

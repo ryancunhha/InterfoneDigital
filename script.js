@@ -1,5 +1,7 @@
 const LIMITE = 2;
 const BLOQUEIO_10 = 10 * 60 * 1000;
+const input = document.getElementById("mensagem");
+const avisoCaracteres = document.getElementById("avisoCaracteres");
 
 function mostrarPopup(texto, tipo = "success") {
   const popup = document.getElementById('popup');
@@ -11,21 +13,6 @@ function mostrarPopup(texto, tipo = "success") {
     popup.style.display = 'none';
   }, 2000);
 }
-
-function chamarPessoas() {
-  const input = document.getElementById('mensagem');
-  const aviso = document.getElementById('aviso');
-  input.value = "Chamando no Portão: ";
-  input.focus();
-  mostrarPopup("⚠️ Digite o nome da pessoa!", "sucess");
-  aviso.style.display = 'block';
-  setTimeout(() => {
-    aviso.style.display = 'none';
-  }, 100);
-}
-
-const input = document.getElementById("mensagem");
-const avisoCaracteres = document.getElementById("avisoCaracteres");
 
 input.addEventListener("input", () => {
   if (input.value.length >= 35) {
@@ -41,17 +28,17 @@ input.addEventListener("input", () => {
 
 const palavrasProibidas = [
   "merda", "porra", "caralho", "fdp", "foda-se",
-  "filho da puta", "cu", "bosta", "spam","CV","cv",
+  "filho da puta", "cu", "bosta", "spam", "CV", "cv",
 ];
 
 function detectarPalavrao(texto) {
   const textoMinusculo = texto.toLowerCase();
   for (const palavra of palavrasProibidas) {
     if (textoMinusculo.includes(palavra)) {
-      return palavra; 
+      return palavra;
     }
   }
-  return null; 
+  return null;
 }
 
 async function enviarMensagem() {
@@ -59,15 +46,15 @@ async function enviarMensagem() {
   const tentativas = JSON.parse(localStorage.getItem('tentativas') || "[]");
   const recentes = tentativas.filter(t => agora - t < BLOQUEIO_10);
   const msg = document.getElementById('mensagem').value.trim();
- 
+
   if (!msg) {
-    mostrarPopup("⚠️ Escreva uma mensagem!", "error");
+    mostrarPopup("⚠️ Digite uma mensagem!", "error");
     return;
   }
 
   const palavraErrada = detectarPalavrao(msg);
   if (palavraErrada) {
-    mostrarPopup(`🚫 A palavra "${palavraErrada}" não é permitida.`, "error");
+    mostrarPopup(`🚫 Corrija a "${palavraErrada}".`, "error");
     return;
   }
 
@@ -81,7 +68,7 @@ async function enviarMensagem() {
   const mensagem = input.value.trim();
 
   if (!mensagem) {
-    mostrarPopup("⚠️ Escreva uma mensagem!", "error");
+    mostrarPopup("⚠️ Digite uma mensagem!", "error");
     return;
   }
 
@@ -94,7 +81,7 @@ async function enviarMensagem() {
     const data = await response.json();
 
     if (data.success) {
-      mostrarPopup("✅ Mensagem enviada, aguarde!", "success");
+      mostrarPopup("✅ Mensagem enviada! Não insista.", "success");
       input.value = '';
       recentes.push(agora);
       localStorage.setItem('tentativas', JSON.stringify(recentes));
@@ -102,7 +89,7 @@ async function enviarMensagem() {
       mostrarPopup(`❌ Erro: ${data.error || 'Desconhecido'}`, "error");
     }
   } catch (error) {
-    mostrarPopup("❌ Erro na comunicação com o servidor!", "error");
+    mostrarPopup("❌ Erro na internet!", "error");
   }
 }
 
@@ -112,3 +99,13 @@ document.getElementById('mensagem').addEventListener('keydown', (event) => {
     enviarMensagem();
   }
 });
+
+function opções() {
+  const chamando = document.querySelector("#mostraropções");
+  chamando.style.display = "block";
+}
+
+function fechar() {
+  const chamando = document.querySelector("#mostraropções");
+  chamando.style.display = "none";
+}
