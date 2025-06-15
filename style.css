@@ -146,6 +146,7 @@
 }
 
 .botão-envio {
+    display: none;
     background-color: #928c8c;
     padding: 10px;
     border-radius: 9px;
@@ -195,7 +196,34 @@
     font-size: 25px;
 }
 
-/* celulares */
+#microfone {
+    display: block;
+    background-color: #928c8c;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 200px;
+}
+
+.gravando {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 800px) {
     * {
         margin: 0;
@@ -345,6 +373,7 @@
     }
 
     .botão-envio {
+        display: none;
         background-color: #928c8c;
         padding: 10px;
         border-radius: 9px;
@@ -358,7 +387,7 @@
         border: 1px solid black;
         border-radius: 20%;
         color: black;
-        width: 43px;
+        width: 50px;
         font-size: 35px;
         font-family: Arial, Helvetica, sans-serif;
         z-index: 0;
@@ -388,9 +417,37 @@
 
     .info {
         position: fixed;
-        padding-top: 5px;
+        padding-top: 10px;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
+        font-size: 25px;
+    }
+
+    #microfone {
+        display: block;
+        background-color: #928c8c;
+        color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 20%;
+    }
+
+    .gravando {
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
     }
 }

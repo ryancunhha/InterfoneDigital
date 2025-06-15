@@ -109,3 +109,62 @@ function fechar() {
   const chamando = document.querySelector("#mostraropções");
   chamando.style.display = "none";
 }
+
+const botao = document.getElementById('microfone');
+const textarea = document.getElementById('mensagem');
+const botaoEnviar = document.querySelector(".botão-envio");
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let gravando = false;
+let recognition;
+
+function atualizarBotoes() {
+  if (textarea.value.trim() !== "") {
+    botaoEnviar.style.display = 'inline-block';
+    botao.style.display = 'none';
+  } else {
+    botaoEnviar.style.display = 'none';
+    botao.style.display = 'inline-block';
+  }
+}
+
+textarea.addEventListener('input', atualizarBotoes);
+
+if (!SpeechRecognition) {
+  botao.disabled = true;
+} else {
+  recognition = new SpeechRecognition();
+  recognition.lang = 'pt-BR';
+  recognition.interimResults = false;
+  recognition.continuous = false;
+
+  recognition.onresult = (event) => {
+    const resultado = event.results[0][0].transcript;
+    textarea.value = resultado;
+    atualizarBotoes();
+  };
+
+  recognition.onend = () => {
+    gravando = false;
+    atualizarBotoes();
+    botao.classList.remove("gravando");
+    botao.textContent = "🎙️ Falar";
+  };
+
+  botao.onclick = () => {
+    if (textarea.value.trim() !== "") {
+      enviarMensagem();
+      textarea.value = "";
+      atualizarBotoes();
+    } else {
+      if (!gravando && recognition) {
+        recognition.start();
+        gravando = true;
+        botao.classList.add("gravando");
+        botao.textContent = "⏹️ Parar";
+      } else if (recognition) {
+        recognition.stop();
+      }
+    }
+  };
+}

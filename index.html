@@ -24,19 +24,20 @@
                     <form method="POST">
                         <div>
                             <input id="mensagem" name="mensagem" placeholder="Digite aqui..." rows="4" type="text"
-                                maxlength="40"></input>
+                                maxlength="40" cols="40"></input>
                         </div>
                     </form>
                     <div class="div-botão-envio">
                         <div class="botoes">
                             <button onclick="opções()">⚙ Opções</button>
                         </div>
+
+                        <button id="microfone">🎙️ Falar</button>
                         <button type="button" class="botão-envio" onclick="enviarMensagem()">📩 Enviar</button>
                     </div>
                 </div>
                 <div id="popup" class="popup" style="display: none;"></div>
             </div>
-
 
             <div id="mostraropções">
                 <p class="info">Opções</p>
