@@ -1,0 +1,14 @@
+name: Notificar aluguel
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fazer requisição para o endpoint de notificação
+        run: |
+          curl -X GET "https://caixapostal.vercel.app/api/notificar"

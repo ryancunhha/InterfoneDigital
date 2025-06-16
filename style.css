@@ -399,8 +399,8 @@
     #mostraropções {
         position: fixed;
         background-color: rgb(101, 89, 89);
-        width: 50%;
-        max-width: 300px;
+        width: 70%;
+        max-width: 100%;
         padding: 1em;
         display: flex;
         display: none;
