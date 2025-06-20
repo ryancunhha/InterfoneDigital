@@ -154,26 +154,8 @@ if (!SpeechRecognition) {
   };
 }
 
-// img (teste deletar ser não sair como esperado)
 
-function tirarFoto() {
-  document.getElementById('camera').click();
-}
 
-document.getElementById('camera').addEventListener('change', async function (event) {
-  const arquivo = event.target.files[0];
-  if (arquivo) {
-    const formData = new FormData();
-    formData.append('photo', arquivo);
-
-    await fetch('/api/enviarFoto', {
-      method: 'POST',
-      body: formData
-    });
-
-    alert("✅ Foto enviada com sucesso!");
-  }
-});
 
 
 
