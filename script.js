@@ -2,6 +2,12 @@ const LIMITE = 2;
 const BLOQUEIO_10 = 10 * 60 * 1000;
 const input = document.getElementById("mensagem");
 const avisoCaracteres = document.getElementById("avisoCaracteres");
+const botao = document.getElementById('microfone');
+const textarea = document.getElementById('mensagem');
+const botaoEnviar = document.querySelector(".botão-envio");
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+let gravando = false;
+let recognition;
 
 function mostrarPopup(texto, tipo = "success") {
   const popup = document.getElementById('popup');
@@ -26,11 +32,6 @@ input.addEventListener("input", () => {
   }
 });
 
-const palavrasProibidas = [
-  "merda", "porra", "caralho", "fdp", "foda-se",
-  "filho da puta", "cu", "bosta", "spam", "CV", "cv",
-];
-
 function detectarPalavrao(texto) {
   const textoMinusculo = texto.toLowerCase();
   for (const palavra of palavrasProibidas) {
@@ -52,15 +53,9 @@ async function enviarMensagem() {
     return;
   }
 
-  const palavraErrada = detectarPalavrao(msg);
-  if (palavraErrada) {
-    mostrarPopup(`🚫 Corrija a "${palavraErrada}".`, "error");
-    return;
-  }
-
   if (recentes.length >= LIMITE) {
     const espera = Math.ceil((BLOQUEIO_10 - (agora - recentes[recentes.length - 1])) / 60000);
-    mostrarPopup(`⏳ Aguarde ${espera} minuto(s) para tentar novamente.`, "error");
+    mostrarPopup(`⏳ Aguarde ${espera}, para mandar novamente.`, "error");
     return;
   }
 
@@ -81,7 +76,7 @@ async function enviarMensagem() {
     const data = await response.json();
 
     if (data.success) {
-      mostrarPopup("✅ Mensagem enviada! Não insista.", "success");
+      mostrarPopup("✅ Mensagem enviada!", "success");
       input.value = '';
       recentes.push(agora);
       localStorage.setItem('tentativas', JSON.stringify(recentes));
@@ -89,7 +84,7 @@ async function enviarMensagem() {
       mostrarPopup(`❌ Erro: ${data.error || 'Desconhecido'}`, "error");
     }
   } catch (error) {
-    mostrarPopup("❌ Erro na internet!", "error");
+    mostrarPopup("❌ Erro no Servidor ou Internet", "error");
   }
 }
 
@@ -109,14 +104,6 @@ function fechar() {
   const chamando = document.querySelector("#mostraropções");
   chamando.style.display = "none";
 }
-
-const botao = document.getElementById('microfone');
-const textarea = document.getElementById('mensagem');
-const botaoEnviar = document.querySelector(".botão-envio");
-
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-let gravando = false;
-let recognition;
 
 function atualizarBotoes() {
   if (textarea.value.trim() !== "") {
@@ -147,7 +134,6 @@ if (!SpeechRecognition) {
   recognition.onend = () => {
     gravando = false;
     atualizarBotoes();
-    botao.classList.remove("gravando");
     botao.textContent = "🎙️ Falar";
   };
 
@@ -160,7 +146,6 @@ if (!SpeechRecognition) {
       if (!gravando && recognition) {
         recognition.start();
         gravando = true;
-        botao.classList.add("gravando");
         botao.textContent = "⏹️ Parar";
       } else if (recognition) {
         recognition.stop();

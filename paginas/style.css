@@ -75,66 +75,10 @@
     transition: background 0.3s ease;
 }
 
-.botão-2 {
-    background-color: #928c8c;
-    padding: 10px 25px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.andar-3 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.botão-3 {
-    background-color: #928c8c;
-    padding: 10px 25px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.botão-4 {
-    background-color: #928c8c;
-    padding: 10px 25px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.botão-5 {
-    background-color: #928c8c;
-    padding: 10px 25px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.botão-6 {
-    background-color: #928c8c;
-    padding: 10px 25px;
-    border-radius: 9px;
-    border: 1px solid black;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.botão-1 img {
+    margin-right: 1vh;
+    border-radius: 20%;
+    height: 20px;
 }
 
 .home {
