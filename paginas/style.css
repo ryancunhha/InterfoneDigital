@@ -36,15 +36,18 @@
     border: 1px solid black;
 }
 
-.Divulgação {
+h1 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin-bottom: 1em;
+    font-size: 30px;
+    color: white;
 }
 
-.Divulgação h1 {
-    font-size: 40px;
-    color: white;
+.Tudo {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
 }
 
 .Tudo-Casas {
@@ -57,10 +60,9 @@
     border-radius: 16px;
 }
 
-.andar-1 {
-    font-family: Arial, Helvetica, sans-serif;
+.informação {
     color: white;
-    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .botão-1 {
